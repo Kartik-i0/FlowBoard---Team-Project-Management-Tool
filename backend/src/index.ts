@@ -6,6 +6,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 import { errorMiddleware } from "./middlewares/error.middleware"
 import authRoutes from "./modules/auth/auth.routes"
+import workspaceRoutes from "./modules/workspace/workspace.routes"
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use("/api/auth", authRoutes)
+app.use("/api/workspaces", workspaceRoutes)
 
 app.use(errorMiddleware)
 
